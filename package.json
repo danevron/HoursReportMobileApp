@@ -6,7 +6,9 @@
     "start": "react-native start"
   },
   "dependencies": {
+    "apsl-react-native-button": "^2.3.0",
     "react-native": "^0.17.0",
+    "react-native-blur": "^0.7.8",
     "react-native-google-signin": "^0.2.4",
     "react-native-icons": "^0.7.0"
   }

@@ -33,6 +33,7 @@
 		AD73FE001C2692B5005CAEC1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD73FDFF1C2692B5005CAEC1 /* AdSupport.framework */; };
 		AD73FE021C2692CD005CAEC1 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD73FE011C2692CD005CAEC1 /* libsqlite3.0.tbd */; };
 		AD73FE041C2692DE005CAEC1 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD73FE031C2692DE005CAEC1 /* libz.1.1.3.tbd */; };
+		ADA053F71C3581E600C76062 /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA053F61C357ED500C76062 /* libRNBlur.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,13 @@
 			remoteGlobalIDString = 2F5A3EB81ACDBF8000439386;
 			remoteInfo = ReactNativeIcons;
 		};
+		ADA053F51C357ED500C76062 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADA053F11C357ED500C76062 /* RNBlur.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A68BD7BC1BC31318005F02DF;
+			remoteInfo = RNBlur;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +164,7 @@
 		AD73FDFF1C2692B5005CAEC1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		AD73FE011C2692CD005CAEC1 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		AD73FE031C2692DE005CAEC1 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		ADA053F11C357ED500C76062 /* RNBlur.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA053F71C3581E600C76062 /* libRNBlur.a in Frameworks */,
 				AD27ECD71C269DF2009F93EC /* libReactNativeIcons.a in Frameworks */,
 				AD73FE041C2692DE005CAEC1 /* libz.1.1.3.tbd in Frameworks */,
 				AD73FE021C2692CD005CAEC1 /* libsqlite3.0.tbd in Frameworks */,
@@ -301,6 +311,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				ADA053F11C357ED500C76062 /* RNBlur.xcodeproj */,
 				AD27ECC71C269BA3009F93EC /* ReactNativeIcons.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -369,6 +380,14 @@
 				AD73FDEB1C268961005CAEC1 /* RNGoogleSignin.m */,
 			);
 			path = RNGoogleSignin;
+			sourceTree = "<group>";
+		};
+		ADA053F21C357ED500C76062 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADA053F61C357ED500C76062 /* libRNBlur.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +500,10 @@
 					ProductGroup = AD27ECC81C269BA3009F93EC /* Products */;
 					ProjectRef = AD27ECC71C269BA3009F93EC /* ReactNativeIcons.xcodeproj */;
 				},
+				{
+					ProductGroup = ADA053F21C357ED500C76062 /* Products */;
+					ProjectRef = ADA053F11C357ED500C76062 /* RNBlur.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -566,6 +589,13 @@
 			fileType = archive.ar;
 			path = libReactNativeIcons.a;
 			remoteRef = AD27ECD51C269BA3009F93EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ADA053F61C357ED500C76062 /* libRNBlur.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBlur.a;
+			remoteRef = ADA053F51C357ED500C76062 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

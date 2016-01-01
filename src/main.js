@@ -10,10 +10,12 @@ var {
 
 var Signin = require('./components/authentication/signin');
 var Home = require('./components/home');
+var Timesheet = require('./components/timesheet');
 
 var ROUTES = {
   signin: Signin,
-  home: Home
+  home: Home,
+  timesheet: Timesheet
 };
 
 module.exports = React.createClass({
