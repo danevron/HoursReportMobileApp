@@ -1,4 +1,7 @@
 var React = require('react-native');
+var { signOut } = require('../actions');
+var Button = require('apsl-react-native-button');
+
 var {
   Dimensions,
   Image,
@@ -7,36 +10,32 @@ var {
   TouchableHighlight,
   View
 } = React;
-var Button = require('apsl-react-native-button');
-var { BlurView } = require('react-native-blur');
 
 module.exports = React.createClass({
-  getInitialState: function() {
-    return {
-      user: this.props.route.user,
-      timesheet: null
-    };
-  },
   render: function() {
     return (
       <Image source={ require('./home.jpg') } style={styles.container}>
         <View style={styles.box}>
           <Text style={styles.welcomeText}>Welcome</Text>
-          <Text style={styles.nameText}>{this.state.user.name}</Text>
+          <Text style={styles.nameText}>{this.userName()}</Text>
         </View>
         <Button style={styles.timesheetButton} textStyle={styles.timesheetButtonText} onPress={ this.navigateToCurrentTimesheet }>
           Fill your active timesheet
         </Button>
-        <Button style={styles.logoutButton} textStyle={styles.timesheetButtonText} onPress={ this.navigateToCurrentTimesheet }>
+        <Button style={styles.logoutButton} textStyle={styles.timesheetButtonText} onPress={ signOut }>
           Logout
         </Button>
       </Image>
     );
   },
   navigateToCurrentTimesheet: function() {
-    if (this.state.timesheet) {
-      this.props.navigator.push({name: 'timesheet', user: this.state.user});
+    this.props.navigator.push({name: 'timesheet'});
+  },
+  userName: function() {
+    if (this.props.data.user) {
+      return this.props.data.user.name
     }
+    return null;
   }
 });
 

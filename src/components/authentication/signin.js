@@ -1,8 +1,8 @@
 var React = require('react-native');
-var { NativeAppEventEmitter } = require('react-native');
-var GoogleSignin = require('react-native-google-signin');
 var { Icon } = require('react-native-icons');
 var { BlurView } = require('react-native-blur');
+var { signIn } = require('../../actions');
+
 var {
   StyleSheet,
   Text,
@@ -13,15 +13,6 @@ var {
 } = React;
 
 module.exports = React.createClass({
-  getInitialState: function() {
-    return {
-      user: null,
-      loading: true
-    }
-  },
-  componentDidMount: function() {
-    this.configureOauth('175859969292-6jtq2u475nc36kv9kbttoi0ol0ns7o5s.apps.googleusercontent.com')
-  },
   render: function() {
     return (
       <Image source={require('./signin.jpg')} style={styles.container}>
@@ -35,7 +26,7 @@ module.exports = React.createClass({
     );
   },
   renderSignin: function() {
-    if (!this.state.loading) {
+    if (!this.props.data.userIsLoading && !this.props.data.user) {
       return (
         <TouchableHighlight onPress={() => {this.signIn(); }}>
           <View style={styles.signinBox}>
@@ -49,28 +40,8 @@ module.exports = React.createClass({
     }
     return null;
   },
-  configureOauth(clientId, scopes=[]) {
-    GoogleSignin.configure(clientId, scopes);
-
-    NativeAppEventEmitter.addListener('googleSignInError', (error) => {
-      console.log('ERROR signin in', error);
-      this.setState({loading: false});
-    });
-
-    NativeAppEventEmitter.addListener('googleSignIn', (user) => {
-      console.log(user);
-      this.setState({user: user});
-      this.props.navigator.push({name: 'home', user: this.state.user});
-    });
-
-    return true;
-  },
   signIn: function() {
-    GoogleSignin.signIn();
-  },
-  signOut: function() {
-    GoogleSignin.signOut();
-    this.setState({user: null});
+    signIn()
   }
 });
 

@@ -6,15 +6,10 @@ var {
 } = React;
 
 module.exports = React.createClass({
-  getInitialState: function() {
-    return {
-      user: this.props.route.user
-    };
-  },
   render: function() {
     return (
       <View style={styles.container}>
-        <Text>Welcome {this.state.user.name}</Text>
+        <Text>TODO: timesheet view</Text>
       </View>
     );
   }
