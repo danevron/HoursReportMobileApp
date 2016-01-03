@@ -10,7 +10,8 @@ module.exports = DataStore = Reflux.createStore({
     this.configureOauth('175859969292-6jtq2u475nc36kv9kbttoi0ol0ns7o5s.apps.googleusercontent.com');
     this.data = {
       user: null,
-      userIsLoading: true
+      userIsLoading: true,
+      timesheet: null
     }
   },
 
@@ -30,6 +31,16 @@ module.exports = DataStore = Reflux.createStore({
       console.log(user);
       this.data.user = user;
       this.data.userIsLoading = false;
+
+      fetch("http://user:password@localhost:3000/api/v2/current_timesheet?email=" + user.email, {method: "GET"})
+      .then((response) => response.json())
+      .then((responseData) => {
+        if (responseData.id > 0) {
+          this.data.timesheet = responseData;
+        }
+      })
+      .done();
+
       this.trigger(this.data);
       Actions.signIn.completed();
     });

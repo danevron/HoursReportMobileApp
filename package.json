@@ -12,6 +12,7 @@
     "react-native-blur": "^0.7.8",
     "react-native-google-signin": "^0.2.4",
     "react-native-icons": "^0.7.0",
-    "reflux": "^0.3.0"
+    "reflux": "^0.3.0",
+    "rn-navbar": "^0.2.3"
   }
 }
