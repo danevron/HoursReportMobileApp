@@ -26,7 +26,7 @@ module.exports = React.createClass({
     );
   },
   renderSignin: function() {
-    if (!this.props.data.userIsLoading && !this.props.data.user) {
+    if (!this.props.data.dataIsLoading && !this.props.data.user) {
       return (
         <TouchableHighlight onPress={() => {this.signIn(); }}>
           <View style={styles.signinBox}>

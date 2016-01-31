@@ -9,8 +9,8 @@ module.exports = DataStore = Reflux.createStore({
   init: function() {
     this.configureOauth('175859969292-6jtq2u475nc36kv9kbttoi0ol0ns7o5s.apps.googleusercontent.com');
     this.data = {
+      dataIsLoading: true,
       user: null,
-      userIsLoading: true,
       timesheet: null
     }
   },
@@ -24,32 +24,31 @@ module.exports = DataStore = Reflux.createStore({
 
     NativeAppEventEmitter.addListener('googleSignInError', (error) => {
       console.log('ERROR signin in', error);
-      this.data.userIsLoading = false;
+      this.data.dataIsLoading = false;
     });
 
     NativeAppEventEmitter.addListener('googleSignIn', (user) => {
       console.log(user);
       this.data.user = user;
-      this.data.userIsLoading = false;
 
-      fetch("http://user:password@localhost:3000/api/v2/current_timesheet?email=" + user.email, {method: "GET"})
+      fetch("http://user:password@10.25.97.55:3000/api/v2/current_timesheet?email=" + user.email, {method: "GET"})
       .then((response) => response.json())
       .then((responseData) => {
         if (responseData.id > 0) {
           this.data.timesheet = responseData;
         }
+        this.data.dataIsLoading = false;
+        this.trigger(this.data);
+        Actions.signIn.completed();
       })
       .done();
-
-      this.trigger(this.data);
-      Actions.signIn.completed();
     });
 
     return true;
   },
 
   onSignIn: function() {
-    this.data.userIsLoading = true;
+    this.data.dataIsLoading = true;
     GoogleSignin.signIn();
     this.trigger(this.data);
   },
@@ -57,7 +56,7 @@ module.exports = DataStore = Reflux.createStore({
   onSignOut: function() {
     GoogleSignin.signOut();
     this.data.user = null;
-    this.data.userIsLoading = false;
+    this.data.dataIsLoading = false;
     this.trigger(this.data);
   }
 });
