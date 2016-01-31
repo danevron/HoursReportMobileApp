@@ -1,0 +1,68 @@
+{
+  "name": "react-native-calendar",
+  "version": "0.6.2",
+  "description": "Simple Calendar Component for React Native",
+  "main": "CalendarIOS.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/christopherdro/react-native-calendar.git"
+  },
+  "files": [
+    "CalendarIOS.js",
+    "README.md"
+  ],
+  "author": {
+    "name": "Christopher Dro",
+    "email": "casheghian@gmail.com",
+    "url": "https://github.com/christopherdro"
+  },
+  "contributors": [
+    {
+      "name": "David Sanderson",
+      "email": "coderdave@gmail.com",
+      "url": "https://github.com/coderdave"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lodash": ">=3.10.1",
+    "moment": ">=2.10.3"
+  },
+  "devDependencies": {
+    "react-native": ">=0.5.0"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.5.0"
+  },
+  "gitHead": "13871deb3b8ed7345bbf1f4a295ad11b1ac77a9f",
+  "bugs": {
+    "url": "https://github.com/christopherdro/react-native-calendar/issues"
+  },
+  "homepage": "https://github.com/christopherdro/react-native-calendar#readme",
+  "_id": "react-native-calendar@0.6.2",
+  "scripts": {},
+  "_shasum": "c1a6abd3283e64b6b6b23b6ffdb0a18250e8376c",
+  "_from": "react-native-calendar@latest",
+  "_npmVersion": "3.3.9",
+  "_nodeVersion": "5.0.0",
+  "_npmUser": {
+    "name": "coderdave",
+    "email": "coderdave@gmail.com"
+  },
+  "dist": {
+    "shasum": "c1a6abd3283e64b6b6b23b6ffdb0a18250e8376c",
+    "tarball": "http://registry.npmjs.org/react-native-calendar/-/react-native-calendar-0.6.2.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "cdro",
+      "email": "casheghian@gmail.com"
+    },
+    {
+      "name": "coderdave",
+      "email": "coderdave@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/react-native-calendar/-/react-native-calendar-0.6.2.tgz"
+}
