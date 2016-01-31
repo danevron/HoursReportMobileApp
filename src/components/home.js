@@ -19,14 +19,22 @@ module.exports = React.createClass({
           <Text style={styles.welcomeText}>Welcome</Text>
           <Text style={styles.nameText}>{this.userName()}</Text>
         </View>
-        <Button style={styles.timesheetButton} textStyle={styles.timesheetButtonText} onPress={ this.navigateToCurrentTimesheet }>
-          Fill your active timesheet
-        </Button>
+        { this.renderTimesheetButton() }
         <Button style={styles.logoutButton} textStyle={styles.timesheetButtonText} onPress={ signOut }>
           Logout
         </Button>
       </Image>
     );
+  },
+  renderTimesheetButton: function() {
+    if (this.props.data.timesheet) {
+      return (
+        <Button style={styles.timesheetButton} textStyle={styles.timesheetButtonText} onPress={ this.navigateToCurrentTimesheet }>
+          Fill your active timesheet
+        </Button>
+      );
+    }
+    return null;
   },
   navigateToCurrentTimesheet: function() {
     this.props.navigator.push({name: 'timesheet'});
